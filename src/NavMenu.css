@@ -1,0 +1,12 @@
+/* Custom styles for the NavMenu component */
+.staggered-menu-panel {
+  text-align: left !important;
+}
+
+.sm-panel-item {
+  text-align: left !important;
+}
+
+.sm-panel-list {
+  text-align: left !important;
+}
