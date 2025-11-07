@@ -12,6 +12,7 @@ import { useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import BackToTopButton from "./components/BackToTopButton";
 
 
 
@@ -66,6 +67,7 @@ function App() {
           </div>
         </div>
       </div>
+      <BackToTopButton />
     </div>
   )
 }
