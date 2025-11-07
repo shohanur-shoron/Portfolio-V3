@@ -87,11 +87,13 @@ export const Card = ({
     >
       <div className="relative z-50 flex flex-col h-full">
         {item.image && (
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-40 object-cover rounded-md mb-2"
-          />
+          <div className="overflow-hidden rounded-md mb-2">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-40 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            />
+          </div>
         )}
         <div className="py-4 flex-grow">{children}</div>
         <div className="flex flex-wrap gap-2 mt-auto">
