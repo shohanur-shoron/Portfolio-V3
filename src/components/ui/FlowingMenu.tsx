@@ -87,8 +87,8 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, text2, image }) => {
     return (
         <div className="menu__item" ref={itemRef}>
             <a className="menu__item-link" href={link} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <span className="menu__item-text">{text}</span>
-                <span className="menu__item-hover-text">{text2}</span>
+                <span className="menu__item-text font-extrabold">{text}</span>
+                <span className="menu__item-hover-text font-extrabold">{text2}</span>
             </a>
             <div className="marquee" ref={marqueeRef}>
                 <div className="marquee__inner-wrap" ref={marqueeInnerRef}>

@@ -5,10 +5,10 @@ import ScrambledText from "./ui/ScrambledText";
 const AboutMe = () => {
   return (
     <section id="about" className="min-h-screen gradient-dark flex items-center justify-center px-6 py-20">
-      <div className="max-w-6xl w-full">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl w-full">
+        <div className="grid md:grid-cols-3 gap-16 items-center">
           {/* Image Section */}
-          <div className="flex justify-center md:justify-end order-2 md:order-1">
+          <div className="flex justify-center md:justify-start order-2 md:order-1 md:col-span-1">
             <div className="relative group">
               <div className="absolute inset-0 bg-accent/20 rounded-[2rem] blur-2xl group-hover:bg-accent/30 transition-all duration-300 ease-in-out"></div>
               <div className="relative overflow-hidden rounded-[2rem] shadow-elegant">
@@ -23,7 +23,7 @@ const AboutMe = () => {
           </div>
 
           {/* Content Section */}
-          <div className="space-y-8 order-1 md:order-2 text-left">
+          <div className="space-y-8 order-1 md:order-2 text-left md:col-span-2">
             <div className="space-y-4 animate-fade-in">
               <h1 className="font-display text-5xl md:text-6xl text-foreground leading-tight">
                 <SplitTextComponent 
@@ -50,7 +50,7 @@ const AboutMe = () => {
                 duration={1.2}
                 speed={0.5}
                 >
-                Hi, I'm <span className="text-amber-500 font-medium">Md. Shohanur Rahman</span> — a learner, builder, and explorer in the world of software and intelligent systems. I enjoy creating things that feel meaningful, whether it's a model that speaks, an interface that feels calm and intuitive, or a small embedded system responding to motion and touch. I believe that technology should feel human — expressive, quiet, and purposeful.
+                Hi, I’m <span className="text-amber-500 font-medium">Md. Shohanur Rahman</span> — but most people know me as Shoron. I’m a 23-year-old Backend Developer from Natore, Rajshahi, with a passion for building reliable, scalable systems using modern web technologies.
                 </ScrambledText>
 
 
@@ -61,7 +61,7 @@ const AboutMe = () => {
                 duration={1.2}
                 speed={0.5}
                 >
-                I like to work slowly and intentionally. I enjoy understanding how things work at their core, breaking down systems, experimenting, refining, and building again. Every project teaches something new — not only about programming or design, but about patience, clarity, and curiosity.
+                My main expertise is with Django, and I’m currently expanding my skillset by learning .NET. I’ve worked on various personal and academic projects involving areas like function calling, RAG-based applications, and integrating intelligent features into web systems. I like solving complex problems with clean, maintainable code and exploring how backend logic shapes real-world use cases.
               </ScrambledText>
               </p>
 
@@ -72,7 +72,7 @@ const AboutMe = () => {
                 duration={1.2}
                 speed={0.5}
                 >
-                Outside of development, I spend time reading about the history of ideas, how cultures grow, and how people find meaning. I enjoy learning about the spread of early Islamic civilization and the stories that shaped it. These ideas influence how I think, how I design, and how I write code — with care, with context, and with respect for detail.
+                I am pursuing a degree in Computer Science and Engineering at the University of Asia Pacific. I’m always exploring new technologies and frameworks to improve my craft. Outside coding, I enjoy playing video games, which sparks both creativity and technical curiosity. I believe in continuous learning, simplicity, and building with intention.
                 </ScrambledText>
               </p>
 

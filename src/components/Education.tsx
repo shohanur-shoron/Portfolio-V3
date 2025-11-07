@@ -18,6 +18,7 @@ export default function Education() {
             scrollStart='center bottom+=50%'
             scrollEnd='bottom bottom-=40%'
             stagger={0.04}
+            textClassName="font-extrabold"
         >
             Education
         </ScrollFloat>
