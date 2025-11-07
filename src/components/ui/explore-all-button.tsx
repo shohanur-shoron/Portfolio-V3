@@ -32,20 +32,19 @@ const ExploreAllButton = React.forwardRef<
     <Button
       ref={ref}
       size={size}
-      variant="default"
-      className={cn("group relative overflow-hidden text-white", className)}
+      className={cn("group relative overflow-hidden bg-gray-900 text-white hover:bg-gray-800", className)}
       asChild
       {...restProps}
     >
       <Comp href={href}>
-        <span className="flex items-center">
+        <span className="flex items-center text-white">
           <span className="mr-1 transition-all duration-300 group-hover:mr-2">
             {children}
           </span>
           <ChevronRight 
             size={iconSize} 
             strokeWidth={iconStrokeWidth} 
-            className="transition-transform duration-300 group-hover:translate-x-1"
+            className="transition-transform duration-300 group-hover:translate-x-1 text-white"
           />
         </span>
       </Comp>

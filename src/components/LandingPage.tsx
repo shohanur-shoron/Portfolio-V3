@@ -2,7 +2,7 @@ import { HeroGeometric } from "./ui/shape-landing-hero";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen">
+    <div id="home" className="min-h-screen">
       <HeroGeometric 
         badge="Open Source"
         title1="Hi I'm"

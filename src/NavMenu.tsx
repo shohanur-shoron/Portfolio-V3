@@ -3,14 +3,14 @@ import './NavMenu.css';
 
 function NavMenu(){
     const menuItems = [
-    { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
-    { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
-    { label: 'Services', ariaLabel: 'View our services', link: '/services' },
-    { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
+    { label: 'Home', ariaLabel: 'Go to home page', link: '#home' },
+    { label: 'About', ariaLabel: 'Learn about me', link: '#about' },
+    { label: 'Work', ariaLabel: 'View my work', link: '#work' },
+    { label: 'Education', ariaLabel: 'View my education', link: '#education' },
     ];
 
     const socialItems = [
-    { label: 'Twitter', link: 'https://twitter.com' },
+    { label: 'Facebook', link: 'https://www.facebook.com/shohanur.rahman.shoron.bd' },
     { label: 'GitHub', link: 'https://github.com/shohanur-shoron' },
     { label: 'LinkedIn', link: 'https://www.linkedin.com/in/shohanur-shoron/' }
     ];

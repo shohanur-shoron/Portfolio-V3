@@ -1,5 +1,7 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './StaggeredMenu.css';
 
 export interface StaggeredMenuItem {
@@ -70,6 +72,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   const itemEntranceTweenRef = useRef<gsap.core.Tween | null>(null);
 
   useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
     const ctx = gsap.context(() => {
       const panel = panelRef.current;
       const preContainer = preLayersRef.current;
@@ -346,6 +349,16 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     animateText(target);
   }, [playOpen, playClose, animateIcon, animateColor, animateText]);
 
+  const handleLinkClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const smoother = ScrollSmoother.get();
+    const href = e.currentTarget.getAttribute('href');
+    if (smoother && href) {
+      smoother.scrollTo(href, true);
+    }
+    toggleMenu();
+  }, [toggleMenu]);
+
   return (
     <div
       className={(className ? className + ' ' : '') + 'staggered-menu-wrapper' + (isFixed ? ' fixed-wrapper' : '')}
@@ -406,7 +419,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             {items && items.length ? (
               items.map((it, idx) => (
                 <li className="sm-panel-itemWrap" key={it.label + idx}>
-                  <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
+                  <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1} onClick={handleLinkClick}>
                     <span className="sm-panel-itemLabel">{it.label}</span>
                   </a>
                 </li>

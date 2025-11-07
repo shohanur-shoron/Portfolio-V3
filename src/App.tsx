@@ -40,7 +40,7 @@ function App() {
         <LandingPage />
         <div className="main-content">
           <AboutMe />
-          <div className="min-h-screen">
+          <div id="work" className="min-h-screen">
             <SplitTextComponent 
               text="My Work" 
               className="text-6xl font-bold text-center text-white py-8"
@@ -73,7 +73,9 @@ function App() {
             </div>
             <WobbleCardDemo />
           </div>
+          <div id="education">
             <Education />
+          </div>
         </div>
       </div>
     </div>

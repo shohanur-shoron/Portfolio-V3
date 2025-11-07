@@ -4,7 +4,7 @@ import ScrambledText from "./ui/ScrambledText";
 
 const AboutMe = () => {
   return (
-    <section className="min-h-screen gradient-dark flex items-center justify-center px-6 py-20">
+    <section id="about" className="min-h-screen gradient-dark flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl w-full">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Image Section */}
