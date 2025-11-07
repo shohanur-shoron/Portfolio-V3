@@ -2,7 +2,7 @@ import './App.css'
 import SplitTextComponent from './components/SplitText';
 import NavMenu from './NavMenu';
 import { Projects } from './components/Projects';
-import PillTabs from './components/ui/pill-tabs';
+
 import ExploreAllButton from './components/ui/explore-all-button';
 import { WobbleCardDemo } from "./components/wobbleCard";
 import LandingPage from "./components/LandingPage";
@@ -54,19 +54,7 @@ function App() {
               rootMargin="-100px"
               textAlign="center"
             />
-            <div className="mt-8 flex justify-center">
-              <PillTabs 
-                tabs={[
-                  { id: "all", label: "All" },
-                  { id: "ml", label: "ML" },
-                  { id: "web", label: "Web" },
-                  { id: "embedded", label: "Embedded" },
-                  { id: "research", label: "Research" },
-                ]}
-                defaultActiveId="all"
-                className="bg-gray-800"
-              />
-            </div>
+
             <Projects />
             <div className="flex justify-center mt-8 mb-20">
               <ExploreAllButton href="#" />

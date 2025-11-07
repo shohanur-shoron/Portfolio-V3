@@ -11,6 +11,9 @@ export const HoverEffect = ({
     description: string;
     link: string;
     image?: string;
+    tags: string[];
+    primaryTag: string;
+    rank: number;
   }[];
   className?: string;
 }) => {
@@ -70,6 +73,9 @@ export const Card = ({
     description: string;
     link: string;
     image?: string;
+    tags: string[];
+    primaryTag: string;
+    rank: number;
   };
 }) => {
   return (
@@ -79,7 +85,7 @@ export const Card = ({
         className
       )}
     >
-      <div className="relative z-50">
+      <div className="relative z-50 flex flex-col h-full">
         {item.image && (
           <img
             src={item.image}
@@ -87,7 +93,17 @@ export const Card = ({
             className="w-full h-40 object-cover rounded-md mb-2"
           />
         )}
-        <div className="p-4">{children}</div>
+        <div className="py-4 flex-grow">{children}</div>
+        <div className="flex flex-wrap gap-2 mt-auto">
+          {item.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-2 py-1 bg-gray-800 text-white rounded-md text-xs"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
