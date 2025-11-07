@@ -26,7 +26,7 @@ function NavMenu(){
             openMenuButtonColor="#000"
             changeMenuColorOnOpen={true}
             colors={['#FFC400', '#FF3F7F', '#8C00FF', '#5227FF']}
-            logoUrl="/public/logo.png"
+            logoUrl="/logo.png"
             accentColor="#5227FF"
             isFixed={true}
             onMenuOpen={() => console.log('Menu opened')}
@@ -34,5 +34,6 @@ function NavMenu(){
         />
     )
 }
+
 
 export default NavMenu;
