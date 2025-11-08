@@ -8,11 +8,14 @@ import { WobbleCardDemo } from "./components/wobbleCard";
 import LandingPage from "./components/LandingPage";
 import AboutMe from './components/aboutMe';
 import Education from './components/Education';
+import Research from './components/Research';
 import { useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import BackToTopButton from "./components/BackToTopButton";
+import { ContactSection } from './components/ui/ContactSection';
+import { Toaster } from "./components/ui/sonner"
 
 
 
@@ -65,9 +68,16 @@ function App() {
           <div id="education">
             <Education />
           </div>
+          <div id="research">
+            <Research />
+          </div>
+          <div id="contact">
+            <ContactSection />
+          </div>
         </div>
       </div>
       <BackToTopButton />
+      <Toaster />
     </div>
   )
 }

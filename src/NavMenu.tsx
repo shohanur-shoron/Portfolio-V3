@@ -7,6 +7,8 @@ function NavMenu(){
     { label: 'About', ariaLabel: 'Learn about me', link: '#about' },
     { label: 'Work', ariaLabel: 'View my work', link: '#work' },
     { label: 'Education', ariaLabel: 'View my education', link: '#education' },
+    { label: 'Research', ariaLabel: 'View my research', link: '#research' },
+    { label: 'Contact', ariaLabel: 'Contact me', link: '#contact' },
     ];
 
     const socialItems = [
