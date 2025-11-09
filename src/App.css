@@ -45,3 +45,14 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Hide scrollbar for the chat panel */
+.hide-scrollbar {
+  /* For Webkit browsers (Chrome, Safari, Edge) */
+  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+  scrollbar-width: none;     /* For Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* For Webkit browsers */
+}

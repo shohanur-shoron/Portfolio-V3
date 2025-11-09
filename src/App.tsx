@@ -16,7 +16,7 @@ import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import BackToTopButton from "./components/BackToTopButton";
 import { ContactSection } from './components/ui/ContactSection';
 import { Toaster } from "./components/ui/sonner"
-
+import { ChatbotSection } from './components/ChatbotSection';
 
 
 function App() {
@@ -70,6 +70,9 @@ function App() {
           </div>
           <div id="research">
             <Research />
+          </div>
+          <div id="chat">
+            <ChatbotSection />
           </div>
           <div id="contact">
             <ContactSection />
