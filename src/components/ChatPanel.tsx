@@ -242,9 +242,21 @@ export function ChatPanel() {
 
         {streamingContent && (
           <div className="flex justify-start mb-4">
-            <div className="max-w-[80%] rounded-lg px-4 py-3 bg-card text-card-foreground border border-border">
+            <div className="max-w-[80%] rounded-lg px-4 py-3 bg-card text-card-foreground border border-border rounded-bl-none">
               <div className="whitespace-pre-wrap break-words">{streamingContent}</div>
               <div className="flex items-center gap-1 mt-2">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {!streamingContent && isStreaming && (
+          <div className="flex justify-start mb-4">
+            <div className="max-w-[80%] rounded-lg px-4 py-3 bg-card text-card-foreground border border-border rounded-bl-none">
+              <div className="flex items-center gap-1">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
