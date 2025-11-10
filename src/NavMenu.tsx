@@ -8,6 +8,7 @@ function NavMenu(){
     { label: 'Work', ariaLabel: 'View my work', link: '#work' },
     { label: 'Education', ariaLabel: 'View my education', link: '#education' },
     { label: 'Research', ariaLabel: 'View my research', link: '#research' },
+    { label: 'Blog', ariaLabel: 'Read my blog', link: '#blog' },
     { label: 'Chat', ariaLabel: 'Chat with me', link: '#chat' },
     { label: 'Contact', ariaLabel: 'Contact me', link: '#contact' },
     ];

@@ -9,6 +9,7 @@ import LandingPage from "./components/LandingPage";
 import AboutMe from './components/aboutMe';
 import Education from './components/Education';
 import Research from './components/Research';
+import Blog from './components/Blog';
 import { useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -70,6 +71,9 @@ function App() {
           </div>
           <div id="research">
             <Research />
+          </div>
+          <div id="blog">
+            <Blog />
           </div>
           <div id="chat">
             <ChatbotSection />
