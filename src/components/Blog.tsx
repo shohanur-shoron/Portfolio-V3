@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
 import BlogList from './BlogList';
-import BlogPostPage from './BlogPostPage';
 
 export interface Post {
   id: number;
@@ -73,20 +71,6 @@ export const blogPosts: Post[] = [
 ];
 
 const Blog: React.FC = () => {
-  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
-
-  const handleSelectPost = (post: Post) => {
-    setSelectedPost(post);
-  };
-
-  const handleBack = () => {
-    setSelectedPost(null);
-  };
-
-  if (selectedPost) {
-    return <BlogPostPage post={selectedPost} onBack={handleBack} />;
-  }
-
   return <BlogList posts={blogPosts} />;
 };
 
