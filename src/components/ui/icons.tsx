@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 export const ArrowLeftIcon = ({ className }: { className?: string }) => (
   <svg

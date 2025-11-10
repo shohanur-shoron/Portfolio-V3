@@ -5,12 +5,11 @@ import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 interface BlogPostCardProps {
   post: Post;
-  onSelectPost: (post: Post) => void;
   index: number;
 }
 
-const BlogPostCard: React.FC<BlogPostCardProps> = ({ post, onSelectPost, index }) => {
-  const { ref, isIntersecting } = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1 });
+const BlogPostCard: React.FC<BlogPostCardProps> = ({ post, index }) => {
+  const { ref, isIntersecting } = useIntersectionObserver<HTMLAnchorElement>({ threshold: 0.1 });
   const animationDelay = `${index * 100}ms`;
 
   return (

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const useIntersectionObserver = <T extends HTMLElement,>(options?: IntersectionObserverInit) => {
   const [isIntersecting, setIsIntersecting] = useState(false);

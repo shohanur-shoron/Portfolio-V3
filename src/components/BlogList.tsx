@@ -1,16 +1,15 @@
 
 import React from 'react';
 import type { Post } from './Blog';
+import ExploreAllButton from './ui/explore-all-button';
 import BlogPostCard from './BlogPostCard';
 import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 interface BlogListProps {
   posts: Post[];
-  onSelectPost: (post: Post) => void;
 }
-
-const FeaturedPost: React.FC<{ post: Post; onSelectPost: (post: Post) => void }> = ({ post, onSelectPost }) => {
-    const { ref, isIntersecting } = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1 });
+const FeaturedPost: React.FC<{ post: Post;}> = ({ post }) => {
+    const { ref, isIntersecting } = useIntersectionObserver<HTMLAnchorElement>({ threshold: 0.1 });
 
     return (
         <a
@@ -36,7 +35,7 @@ const FeaturedPost: React.FC<{ post: Post; onSelectPost: (post: Post) => void }>
 };
 
 
-const BlogList: React.FC<BlogListProps> = ({ posts, onSelectPost }) => {
+const BlogList: React.FC<BlogListProps> = ({ posts }) => {
   const { ref: headerRef, isIntersecting: isHeaderVisible } = useIntersectionObserver<HTMLDivElement>({ threshold: 0.5 });
   const featuredPost = posts.find(p => p.featured);
   const regularPosts = posts.filter(p => !p.featured);
@@ -51,12 +50,15 @@ const BlogList: React.FC<BlogListProps> = ({ posts, onSelectPost }) => {
         </div>
       </header>
 
-      {featuredPost && <FeaturedPost post={featuredPost} onSelectPost={onSelectPost} />}
+      {featuredPost && <FeaturedPost post={featuredPost} />}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
         {regularPosts.map((post, index) => (
-          <BlogPostCard key={post.id} post={post} onSelectPost={onSelectPost} index={index} />
+          <BlogPostCard key={post.id} post={post} index={index} />
         ))}
+      </div>
+       <div className="mt-16 flex justify-center">
+        <ExploreAllButton href="/blog" />
       </div>
     </div>
   );
