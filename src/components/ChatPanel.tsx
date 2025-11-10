@@ -66,6 +66,7 @@ export function ChatPanel() {
     try {
       const encodedMessage = encodeURIComponent(messageText);
       const apiUrl = import.meta.env.VITE_API_URL || '/api';
+      console.log('Using API URL:', apiUrl); // for debugging
       const response = await fetch(`${apiUrl}/chat/?message=${encodedMessage}`, {
         signal: abortController.signal,
       });
