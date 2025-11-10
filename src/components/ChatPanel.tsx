@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Send, StopCircle, RefreshCw } from 'lucide-react';
 import { ChatMessage } from './ChatMessage';
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
 
 interface Message {
   id: string;
