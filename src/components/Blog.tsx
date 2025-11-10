@@ -87,7 +87,7 @@ const Blog: React.FC = () => {
     return <BlogPostPage post={selectedPost} onBack={handleBack} />;
   }
 
-  return <BlogList posts={blogPosts} onSelectPost={handleSelectPost} />;
+  return <BlogList posts={blogPosts} />;
 };
 
 export default Blog;
