@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Send, StopCircle, RefreshCw } from 'lucide-react';
 import { ChatMessage } from './ChatMessage';
 
+declare const marked: any;
+
 interface Message {
   id: string;
   role: 'user' | 'assistant';
@@ -17,6 +19,7 @@ export function ChatPanel() {
   const [input, setInput] = useState('');
   const [isStreaming, setIsStreaming] = useState(false);
   const [streamingContent, setStreamingContent] = useState('');
+  const [streamingType, setStreamingType] = useState<'status' | 'chunk' | null>(null);
   const [lastFailedMessage, setLastFailedMessage] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -54,6 +57,7 @@ export function ChatPanel() {
     setInput('');
     setIsStreaming(true);
     setStreamingContent('');
+    setStreamingType(null);
     setLastFailedMessage(null);
 
     const abortController = new AbortController();
@@ -104,6 +108,7 @@ export function ChatPanel() {
                 setMessages((prev) => [...prev, assistantMessage].slice(-MAX_MESSAGES));
               }
               setStreamingContent('');
+              setStreamingType(null);
               setIsStreaming(false);
               return;
             }
@@ -112,8 +117,10 @@ export function ChatPanel() {
               const parsed = JSON.parse(data);
 
               if (parsed.type === 'status') {
+                setStreamingType('status');
                 setStreamingContent(parsed.content);
               } else if (parsed.type === 'chunk') {
+                setStreamingType('chunk');
                 currentContent += parsed.content;
                 setStreamingContent(currentContent);
               } else if (parsed.type === 'error') {
@@ -125,6 +132,7 @@ export function ChatPanel() {
                 };
                 setMessages((prev) => [...prev, errorMessage].slice(-MAX_MESSAGES));
                 setStreamingContent('');
+                setStreamingType(null);
                 setIsStreaming(false);
                 return;
               }
@@ -146,6 +154,7 @@ export function ChatPanel() {
       }
 
       setStreamingContent('');
+      setStreamingType(null);
       setIsStreaming(false);
     } catch (error: unknown) {
       if ((error as Error).name === 'AbortError') {
@@ -163,6 +172,7 @@ export function ChatPanel() {
       setMessages((prev) => [...prev, errorMessage].slice(-MAX_MESSAGES));
       setLastFailedMessage(messageText);
       setStreamingContent('');
+      setStreamingType(null);
       setIsStreaming(false);
     }
   };
@@ -179,6 +189,7 @@ export function ChatPanel() {
     }
     setIsStreaming(false);
     setStreamingContent('');
+    setStreamingType(null);
   };
 
   const handleRetry = () => {
@@ -240,15 +251,28 @@ export function ChatPanel() {
           />
         ))}
 
-        {streamingContent && (
+        {streamingContent && streamingType === 'status' && (
           <div className="flex justify-start mb-4">
-            <div className="max-w-[80%] rounded-lg px-4 py-3 bg-card text-card-foreground border border-border rounded-bl-none">
-              <div className="whitespace-pre-wrap break-words">{streamingContent}</div>
-              <div className="flex items-center gap-1 mt-2">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+            <div className="max-w-[80%] rounded-lg px-4 py-3 bg-card text-card-foreground border border-border rounded-bl-none text-left">
+              <div className="flex items-center">
+                <div>{streamingContent}</div>
+                <div className="flex items-center gap-1 ml-2">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                </div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {streamingContent && streamingType === 'chunk' && (
+          <div className="flex justify-start mb-4">
+            <div className="max-w-[80%] rounded-lg px-4 py-3 bg-card text-card-foreground border border-border rounded-bl-none text-left">
+              <div
+                dangerouslySetInnerHTML={{ __html: marked.parse(streamingContent) }}
+                className="prose prose-sm max-w-none dark:prose-invert"
+              />
             </div>
           </div>
         )}
